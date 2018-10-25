@@ -53,8 +53,16 @@
 \newcommand{\pulse}[4][(O)]{%
   \draw[shift={#1},xscale=#2,yscale=#3] (0,0)
   node[anchor=south east,shift={(0.2,0.5)}] {#4}
-  \foreach \i in {1,1.25,...,100}
+  \foreach \i in {0,0.25,...,100}
   {-- ({\i/100}, {sin(\i * (0.5*3.6))^3 * sin(\i * (6.5*3.6))}) };
+  \updateO;
+}
+
+\newcommand{\pulseHyperbolicSecant}[4][(O)]{%
+  \draw[shift={#1},xscale=#2,yscale=#3] (0,0)
+  node[anchor=south east,shift={(0.2,0.5)}] {#4}
+  \foreach \i in {0,0.25,...,100}
+  {-- ({\i/100}, {1/cosh((\i-50) /8))}) };
   \updateO;
 }
 
